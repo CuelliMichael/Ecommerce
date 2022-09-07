@@ -1,21 +1,19 @@
-import { CategoriesItems } from "./components/categories/categories-items-component";
-import { CategoryModel } from "./Model/CategoryModel";
+import { Routes, Route } from "react-router-dom";
+import { Home } from "./routes/home/home.route";
+import { Navigation } from "./routes/navigation/navigation.component";
+import { SignIn } from "./routes/sing-in/sign-in.component";
 
 const App = () => {
 
-  const categories = [
-    new CategoryModel(1, 'Hats', 'https://i.ibb.co/cvpntL1/hats.png'),
-    new CategoryModel(2, 'Jackets', 'https://i.ibb.co/px2tCc3/jackets.png'),
-    new CategoryModel(3, 'Sneakers', 'https://i.ibb.co/0jqHpnp/sneakers.png'),
-    new CategoryModel(4, 'Womens', 'https://i.ibb.co/GCCdy8t/womens.png'),
-    new CategoryModel(5, 'Mens', 'https://i.ibb.co/R70vBrQ/men.png'),
-  ]
-
-  return (
-    <CategoriesItems 
-      categories={categories}
-    />
-  );
+  return(
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path="shop" element={<div>Hi I'm the shop</div>} />
+        <Route path="sign-in" element={<SignIn />} />
+      </Route>
+    </Routes>
+  )
 }
 
 export default App;
