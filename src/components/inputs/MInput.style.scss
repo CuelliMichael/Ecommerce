@@ -1,0 +1,211 @@
+.label-title-up-input {
+	position: relative;
+	width: 100%;
+	display: block;
+	margin-bottom: 30px;
+
+	span {
+		color: #555;
+		display: block;
+		position: absolute;
+		top: 1rem;
+		left: .55rem;
+		padding: .1em .5em;
+		z-index: 2;
+		transition: all .25s ease-in-out;
+	}
+
+	input[type="search"] {
+		display: block;
+		background: #efefef;
+		width: 100%;
+		padding: 1rem 1rem;
+		border: 2px solid #efefef;
+		z-index: 0;
+		transition: background .25s ease-in-out;
+
+		&:focus,
+        &:valid {
+			border: 2px solid lighten(#3498db, 30%);
+			background: white;
+			outline: none;
+
+			&+span {
+				background: white;
+				color: lighten(#3498db, 15%);
+				top: -.5em;
+				transition: all .25s ease-in-out;
+			}
+		}
+        
+		&::-webkit-input-placeholder {
+			color: transparent;
+			transition: color .25s ease-in-out;
+		}
+
+		&::-moz-placeholder {
+			color: transparent;
+			transition: color .25s ease-in-out;
+		}
+
+		&:-ms-input-placeholder {
+			color: transparent;
+			transition: color .25s ease-in-out;
+		}
+
+		&:-moz-placeholder {
+			color: transparent;
+			transition: color .25s ease-in-out;
+		}
+	}
+
+    input[type="text"] {
+        display: block;
+        background: #efefef;
+        width: 100%;
+        padding: 1rem 1rem;
+        border: 2px solid #efefef;
+        z-index: 0;
+        transition: background .25s ease-in-out;
+        
+        &:focus,
+        &:valid {
+            border: 2px solid lighten(#3498db, 30%);
+            background: white;
+            outline: none;
+
+            & + span {
+                background: white;
+                color: lighten(#3498db, 15%);
+                top: -.5em;
+                transition: all .25s ease-in-out;
+            }
+        }
+        &:focus:invalid {
+            border-color: red;
+            
+            & + span {
+                color: red;
+            }
+        }
+
+        &::-webkit-input-placeholder {
+            color: transparent;
+            transition: color .25s ease-in-out;
+        }
+        &::-moz-placeholder {
+            color: transparent;
+            transition: color .25s ease-in-out;
+        }
+        &:-ms-input-placeholder {
+            color: transparent;
+            transition: color .25s ease-in-out;
+        }
+        &:-moz-placeholder {
+            color: transparent;
+            transition: color .25s ease-in-out;
+        }
+    }
+
+    input[type="email"] {
+        display: block;
+        background: #efefef;
+        width: 100%;
+        padding: 1rem 1rem;
+        border: 2px solid #efefef;
+        z-index: 0;
+        transition: background .25s ease-in-out;
+        
+        &:focus,
+        &:valid {
+            border: 2px solid lighten(#3498db, 30%);
+            background: white;
+            outline: none;
+
+            & + span {
+                background: white;
+                color: lighten(#3498db, 15%);
+                top: -.5em;
+                transition: all .25s ease-in-out;
+            }
+        }
+        &:focus,
+        &:invalid {
+            border-color: red;
+            background: white;
+            outline: none;
+            
+            & + span {
+                color: red;
+                background: white;
+                top: -.5em;
+                transition: all .25s ease-in-out;
+            }
+        }
+
+        &::-webkit-input-placeholder {
+            color: transparent;
+            transition: color .25s ease-in-out;
+        }
+        &::-moz-placeholder {
+            color: transparent;
+            transition: color .25s ease-in-out;
+        }
+        &:-ms-input-placeholder {
+            color: transparent;
+            transition: color .25s ease-in-out;
+        }
+        &:-moz-placeholder {
+            color: transparent;
+            transition: color .25s ease-in-out;
+        }
+    }
+
+    input[type="password"] {
+        display: block;
+        background: #efefef;
+        width: 100%;
+        padding: 1rem 1rem;
+        border: 2px solid #efefef;
+        z-index: 0;
+        transition: background .25s ease-in-out;
+        
+        &:focus,
+        &:valid {
+            border: 2px solid lighten(#3498db, 30%);
+            background: white;
+            outline: none;
+
+            & + span {
+                background: white;
+                color: lighten(#3498db, 15%);
+                top: -.5em;
+                transition: all .25s ease-in-out;
+            }
+        }
+        &:focus:invalid {
+            border-color: red;
+            
+            & + span {
+                color: red;
+            }
+        }
+
+        &::-webkit-input-placeholder {
+            color: transparent;
+            transition: color .25s ease-in-out;
+        }
+        &::-moz-placeholder {
+            color: transparent;
+            transition: color .25s ease-in-out;
+        }
+        &:-ms-input-placeholder {
+            color: transparent;
+            transition: color .25s ease-in-out;
+        }
+        &:-moz-placeholder {
+            color: transparent;
+            transition: color .25s ease-in-out;
+        }
+    }
+}

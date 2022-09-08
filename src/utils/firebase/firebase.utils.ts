@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -50,4 +50,9 @@ export const createUserDocumentFromAuth = async (userAuth: any) => {
             console.log('an error was occoured in creating the values',error)
         }
     }
+}
+
+export const createAuthUserWithEmailAndPassword = async (email:string, password:string) => {
+
+    return await createUserWithEmailAndPassword(auth, email,password); // crea un utente con l'email e la psw date, oppure se già esiste lo verifica
 }
