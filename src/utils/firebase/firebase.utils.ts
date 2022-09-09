@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithPopup, signInWithEmailAndPassword, GoogleAuthProvider, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -54,5 +54,11 @@ export const createUserDocumentFromAuth = async (userAuth: any) => {
 
 export const createAuthUserWithEmailAndPassword = async (email:string, password:string) => {
 
-    return await createUserWithEmailAndPassword(auth, email,password); // crea un utente con l'email e la psw date, oppure se già esiste lo verifica
+    return await createUserWithEmailAndPassword(auth, email,password); // crea un utente con l'email e la psw date
+}
+
+export const signInAuthUserWithEmailAndPassword = async (email:string, password:string) => {
+
+    return await signInWithEmailAndPassword(auth, email,password); // controlla se l'email e la psw inserite esistono nel db
+    //return an object with a variable "user" that inside has the information of the user and the accesstoken
 }
