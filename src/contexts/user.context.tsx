@@ -13,7 +13,7 @@ export const UserProvider: React.FC<any> = ({ children }) => {
 
     useEffect(
         () => {
-            const unsubscribe = onAuthStateChangedListener(
+            const unsubscribe = onAuthStateChangedListener( //check the event of a user that log in and out
                 (user:any) => {
                     if(user){
                         createUserDocumentFromAuth(user); //use this when we sign in with google
