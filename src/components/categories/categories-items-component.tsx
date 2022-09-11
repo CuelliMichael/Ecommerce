@@ -14,6 +14,7 @@ export const CategoriesItems: React.FC<CategoryItemsProps> = ({categories}:Categ
                 categories.map(
                     (category: CategoryModel) => (
                         <CategoryItem
+                            key={category.id}
                             category={category}
                         />
                     )

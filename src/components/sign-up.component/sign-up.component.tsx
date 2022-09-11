@@ -25,6 +25,7 @@ export const SignUpForm: React.FC = props => {
             try {
                 const { user } = await createAuthUserWithEmailAndPassword(formFields.email, formFields.password);
                 await createUserDocumentFromAuth({ ...user, displayName: formFields.displayName });
+
                 resetFormField();
             } catch (error: any) {
                 if (error.code === "auth/email-already-in-use") {

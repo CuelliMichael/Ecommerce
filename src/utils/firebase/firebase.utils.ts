@@ -1,5 +1,13 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, signInWithEmailAndPassword, GoogleAuthProvider, createUserWithEmailAndPassword } from 'firebase/auth';
+import {
+    getAuth,
+    signInWithPopup,
+    signInWithEmailAndPassword,
+    GoogleAuthProvider,
+    createUserWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
+} from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -34,31 +42,38 @@ export const createUserDocumentFromAuth = async (userAuth: any) => {
     const userSnapshot = await getDoc(userDocRef); //this is the data of the document
 
     //userSnapshot.exist tell us if inside the database the document exists or not
-    if(!userSnapshot.exists()) {
+    if (!userSnapshot.exists()) {
         const { displayName, email } = userAuth;
         const createdAt = new Date();
 
-        try{
+        try {
             await setDoc(
                 userDocRef, {
-                   displayName,
-                   email,
-                   createdAt 
-                }
+                displayName,
+                email,
+                createdAt
+            }
             )
-        }catch (error) {
-            console.log('an error was occoured in creating the values',error)
+        } catch (error) {
+            console.log('an error was occoured in creating the values', error)
         }
     }
 }
 
-export const createAuthUserWithEmailAndPassword = async (email:string, password:string) => {
+export const createAuthUserWithEmailAndPassword = async (email: string, password: string) => {
 
-    return await createUserWithEmailAndPassword(auth, email,password); // crea un utente con l'email e la psw date
+    return await createUserWithEmailAndPassword(auth, email, password); // crea un utente con l'email e la psw date
 }
 
-export const signInAuthUserWithEmailAndPassword = async (email:string, password:string) => {
+export const signInAuthUserWithEmailAndPassword = async (email: string, password: string) => {
 
-    return await signInWithEmailAndPassword(auth, email,password); // controlla se l'email e la psw inserite esistono nel db
+    return await signInWithEmailAndPassword(auth, email, password); // controlla se l'email e la psw inserite esistono nel db
     //return an object with a variable "user" that inside has the information of the user and the accesstoken
 }
+
+export const signOutUser = () => signOut(auth);
+
+export const onAuthStateChangedListener = (callback:any) => {
+    onAuthStateChanged(auth,callback);
+} //it return a listener of auth, the second parameter is a callback
+//it's a permanent open listener, you should kill the listener when the component unmount !!!

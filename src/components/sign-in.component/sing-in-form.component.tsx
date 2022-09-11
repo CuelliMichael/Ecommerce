@@ -2,8 +2,8 @@ import { FormInput } from "../form-input/form-input.component"
 import { useState } from "react"
 import { SingInFormModel } from "../../Model/SingInFormModel"
 import { MButton } from "../button/button.component"
-import { createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from "../../utils/firebase/firebase.utils"
-import './sing-in-form.style.scss'
+import { signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from "../../utils/firebase/firebase.utils"
+import './sing-in-form.style.scss';
 
 export const SingInForm: React.FC = props => {
 
@@ -15,15 +15,14 @@ export const SingInForm: React.FC = props => {
     }
 
     const logGoogleUser = async () => {
-        const { user } = await signInWithGooglePopup();
-        await createUserDocumentFromAuth(user);
+        await signInWithGooglePopup();
     }
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-            const response = await signInAuthUserWithEmailAndPassword(sing_in.email, sing_in.password);
-            console.log(response);
+            await signInAuthUserWithEmailAndPassword(sing_in.email, sing_in.password);
+
             resetFields();
         } catch (error: any) {
             switch (error.code) {
