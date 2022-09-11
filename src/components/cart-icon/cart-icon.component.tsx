@@ -5,7 +5,7 @@ import { CartContext } from '../../contexts/cart.context';
 
 export const CartIcon: React.FC = props => {
 
-    const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+    const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
 
     const toggle = () => setIsCartOpen(!isCartOpen);
 
@@ -15,7 +15,7 @@ export const CartIcon: React.FC = props => {
             onClick={toggle}
         >
             <ShoppingIcon className='shopping-icon' />
-            <span className='item-count'>0</span>
+            <span className='item-count'>{cartCount}</span>
         </div>
     )
 }
